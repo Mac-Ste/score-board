@@ -1,8 +1,11 @@
 package com.macste.scoreboard.games
 
 interface GameStorage {
-    fun addNewGame(game: Game): Game?
+    fun addGames(games: Set<Game>): List<Game?>
+
+    fun addGame(game: Game): Game?
 
     fun getAllGames(): Set<Game>
 
+    fun clearAll()
 }
