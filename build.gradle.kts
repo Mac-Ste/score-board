@@ -19,6 +19,7 @@ dependencies {
     val logbackVersion = "1.4.11"
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     runtimeOnly("org.springframework.boot:spring-boot-devtools")
 
