@@ -1,5 +1,6 @@
 package com.macste.scoreboard.games
 
+import com.macste.scoreboard.domain.models.Game
 import org.springframework.stereotype.Component
 
 @Component

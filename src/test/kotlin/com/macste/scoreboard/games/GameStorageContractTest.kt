@@ -1,5 +1,6 @@
 package com.macste.scoreboard.games
 
+import com.macste.scoreboard.domain.models.Game
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.equals.shouldBeEqual
