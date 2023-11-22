@@ -1,15 +1,20 @@
 package com.macste.scoreboard.storage
 
+import com.macste.scoreboard.domain.models.Game
+import com.macste.scoreboard.utils.randomItemsSequence
 import io.kotest.matchers.collections.shouldBeEmpty
 import org.junit.jupiter.api.Test
 
-class InMemoryGameStorageTest : GameStorageContractTest(InMemoryGameStorage()) {
+class InMemoryGameStorageTest : SimpleStorageContractTest<Game>(
+    InMemoryGameStorage(),
+    randomItemsSequence<Game>()
+) {
 
     @Test
     fun `should be empty on start`() {
         val gameStorage = InMemoryGameStorage()
 
-        gameStorage.getAllGames().shouldBeEmpty()
+        gameStorage.getAll().shouldBeEmpty()
     }
 
 }

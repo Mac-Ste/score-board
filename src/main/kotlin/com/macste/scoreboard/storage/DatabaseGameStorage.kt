@@ -10,15 +10,15 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
 @Component("databaseGameStorage")
-class DatabaseGameStorage : GameStorage {
+class DatabaseGameStorage : SimpleStorage<Game> {
     private val logger = LoggerFactory.getLogger(DatabaseGameStorage::class.java)
-    override fun addGames(games: Set<Game>): List<Game?> {
-        return games.map { tryAddGame(it)?.asDomainModel() }
+    override fun add(item: Set<Game>): List<Game?> {
+        return item.map { tryAddGame(it)?.asDomainModel() }
     }
 
-    override fun addGame(game: Game): Game? = tryAddGame(game)?.asDomainModel()
+    override fun add(item: Game): Game? = tryAddGame(item)?.asDomainModel()
 
-    override fun getAllGames(): Set<Game> = transaction { GameDAO.all().map { it.asDomainModel() } }.toSet()
+    override fun getAll(): Set<Game> = transaction { GameDAO.all().map { it.asDomainModel() } }.toSet()
 
     override fun clearAll() {
         transaction { GameTable.deleteAll() }
