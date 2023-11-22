@@ -9,7 +9,7 @@ import org.jetbrains.exposed.sql.transactions.transaction
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Component
 
-@Component
+@Component("databasePlayerStorage")
 class DatabasePlayerStorage : SimpleStorage<Player> {
     private val logger = LoggerFactory.getLogger(DatabasePlayerStorage::class.java)
 
