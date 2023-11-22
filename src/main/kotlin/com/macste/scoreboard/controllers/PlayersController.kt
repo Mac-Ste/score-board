@@ -16,17 +16,17 @@ class PlayersController(
 ) {
 
     @GetMapping("/players")
-    fun getGames() = playerStorage.getAll()
+    fun getPlayers() = playerStorage.getAll()
 
 
     @PostMapping("/players")
-    fun createGame(@RequestBody player: Player): ResponseEntity<Unit> {
+    fun createPlayer(@RequestBody player: Player): ResponseEntity<Unit> {
         val result = playerStorage.add(player)
         return if (result != null) ResponseEntity.ok().build() else ResponseEntity.badRequest().build()
     }
 
     @PostMapping("/bulkPlayers")
-    fun createGames(@RequestBody players: Set<Player>): List<Player?> {
+    fun createPlayers(@RequestBody players: Set<Player>): List<Player?> {
         return playerStorage.add(players)
     }
 }
