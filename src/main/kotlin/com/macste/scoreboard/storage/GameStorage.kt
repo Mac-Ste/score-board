@@ -1,4 +1,4 @@
-package com.macste.scoreboard.games
+package com.macste.scoreboard.storage
 
 import com.macste.scoreboard.domain.models.Game
 

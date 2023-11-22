@@ -1,4 +1,4 @@
-package com.macste.scoreboard.games
+package com.macste.scoreboard.storage
 
 import io.kotest.matchers.collections.shouldBeEmpty
 import org.junit.jupiter.api.Test

@@ -1,6 +1,6 @@
 package com.macste.scoreboard.controllers
 
-import com.macste.scoreboard.games.GameStorage
+import com.macste.scoreboard.storage.GameStorage
 import com.macste.scoreboard.domain.models.Game
 import org.springframework.beans.factory.annotation.Qualifier
 import org.springframework.http.ResponseEntity
