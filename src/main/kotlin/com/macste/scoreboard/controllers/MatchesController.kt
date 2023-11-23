@@ -22,7 +22,7 @@ class MatchesController {
     fun createMatch(@RequestBody game: Game) = transaction {
         GameDAO.find { GameTable.title eq game.title }.firstOrNull()
             ?.let {
-                val match = MatchDAO.new { this.game = it.id }.load()
+                val match = MatchDAO.new { this.game = it }.load()
                 ResponseEntity.ok(match.asDomainModel())
             } ?: ResponseEntity.badRequest()
     }

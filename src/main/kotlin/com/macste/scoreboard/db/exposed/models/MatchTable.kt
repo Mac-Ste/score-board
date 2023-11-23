@@ -22,14 +22,14 @@ object MatchTable : IntIdTable(name = "match") {
 class MatchDAO(id: EntityID<Int>) : IntEntity(id), DomainModelConvertible<Match> {
     companion object : IntEntityClass<MatchDAO>(MatchTable)
 
-    var game by MatchTable.game
+    var game by GameDAO referencedOn MatchTable.game
     var status by MatchTable.status
     var start by MatchTable.start
     var end by MatchTable.end
 
     override fun asDomainModel(): Match = Match(
         id = id.value,
-        game = GameDAO[game].asDomainModel(),
+        game = game.asDomainModel(),
         start = start.toInstant(TimeZone.currentSystemDefault()),
         end = end?.toInstant(TimeZone.currentSystemDefault()),
         status = status
